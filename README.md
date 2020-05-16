@@ -14,6 +14,22 @@ to teach myself to be a good person and not store my API keys in the script like
 - [Twitchio](https://github.com/TwitchIO/TwitchIO)
 - [python-dotenv](https://pypi.org/project/python-dotenv/)
 
+I'm also using a `.env` file in the root directory to store environment variables instead of storing them in the OS.
+This is why we import python-dotenv. You will either need to create one yourself with the following variables in it or
+`EXPORT` / `SET` them in your OS.
+
+Delete lines 4 and 10 if you're going to store the environment variables in OS instead of using the `.env` file.
+
+We need to set these variables:
+
+```
+BOT_TMI_TOKEN=<generate a token at https://twitchapps.com/tmi/>
+BOT_CLIENT_ID=<create an app on TwitchDev and use the client ID here>
+BOT_NICK=<name of your bot account>
+BOT_PREFIX=!
+BOT_CHANNEL=<name of the channel to join as the bot>
+```
+
 ## Roadmap
 
 - Spotify integration
