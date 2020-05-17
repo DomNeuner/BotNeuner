@@ -3,7 +3,7 @@ import spotipy.util as util
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(dotenv_path=".\.env") # specifying the custom .env location as we're in a sub folder here
 
 username = os.environ['SPOTIFY_USERNAME']
 client_id = os.environ['SPOTIFY_CLIENT_ID']
@@ -18,16 +18,10 @@ def check():
                                        client_secret=client_secret,
                                        redirect_uri=redirect_uri)
 
-    print(token)
-
-    spotify = spotipy.Spotify(auth=token)
-
-    current_playback = spotify.current_playback('DE')
+    spotify_fetcher = spotipy.Spotify(auth=token)
+    current_playback = spotify_fetcher.current_playback('DE')
     current_title = current_playback['item']['name']
     current_artist = current_playback['item']['artists'][0]['name']
-    print(f"The current song title is: {current_title}")
-    print(f"The current artist is: {current_artist}")
+    current_song_URL = current_playback['item']['external_urls']['spotify']
 
-
-if __name__ == '__main__':
-    check()
+    return current_title, current_artist, current_song_URL

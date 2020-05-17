@@ -2,6 +2,7 @@
 from twitchio.ext import commands
 import os
 from dotenv import load_dotenv
+from custom_modules import spotify
 
 # var inits go here
 
@@ -20,7 +21,6 @@ bot = commands.Bot(
 
 @bot.event
 async def event_ready():
-    'Called once when the bot goes online.'
     print(f"{os.environ['BOT_NAME']} is online!")
     print("Waiting for commands.")
     ws = bot._ws  # this is only needed to send messages within event_ready
@@ -29,6 +29,11 @@ async def event_ready():
 @bot.command(name='ping')
 async def ping(ctx):
     await ctx.send(f'pong!')
+
+@bot.command(name='song')
+async def ping(ctx):
+    current_title, current_artist, current_song_URL = spotify.check()
+    await ctx.send(f'The song you can hear is {current_title} by {current_artist}. You can find it on Spotify at {current_song_URL}')
 
 # if we're running, run duh
 if __name__ == '__main__':
