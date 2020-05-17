@@ -23,11 +23,11 @@ Delete lines 4 and 10 if you're going to store the environment variables in OS i
 We need to set these variables:
 
 ```
-BOT_TMI_TOKEN=<generate a token at https://twitchapps.com/tmi/>
-BOT_CLIENT_ID=<create an app on TwitchDev and use the client ID here>
-BOT_NICK=<name of your bot account>
-BOT_PREFIX=!
-BOT_CHANNEL=<name of the channel to join as the bot>
+TMI_TOKEN=<generate a token at https://twitchapps.com/tmi/>
+TWITCH_CLIENT_ID=<create an app on TwitchDev and use the client ID here>
+BOT_NAME=<name of your bot account>
+COMMAND_PREFIX=!
+TWITCH_ACTIVE_CHANNEL=<name of the channel to join as the bot>
 ```
 
 ## Roadmap
